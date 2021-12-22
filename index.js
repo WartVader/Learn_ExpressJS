@@ -18,7 +18,7 @@ app.engine('hbs', hbs.engine); // идет указание на движок
 app.set('view engine', 'hbs'); // использование движка
 app.set('views', 'views');
 
-app.use(express.static('public')); // добавляем папку public в статическую папку (чтобы были обращения сразу в папку publics)
+app.use(express.static(path.join(__dirname, 'public'))); // добавляем папку public в статическую папку (чтобы были обращения сразу в папку publics)
 app.use(express.urlencoded({extended: true})); 
 app.use('/', homeRoute); // Либо можно заместно 1го параметра ничего не кидать, но если в роутере в router.get в первом параметре будет нужный роут
 app.use('/courses', coursesRoute);
